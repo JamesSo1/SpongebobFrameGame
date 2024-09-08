@@ -1,84 +1,3 @@
-// const episodeCount = 2; // Index of the current image
-// const frameCount = 50; // Number of frames per episode
-
-// document.getElementById("startButton").addEventListener("click", function () {
-//   const difficulty = document.getElementById("difficulty").value;
-//   const timeLimits = {
-//     easy: 30,
-//     medium: 20,
-//     hard: 10,
-//   };
-
-//   startGame(timeLimits[difficulty]);
-// });
-
-// function startGame(timeLimit) {
-//   let score = 0;
-//   let timeLeft = timeLimit;
-//   let ans;
-
-//   document.getElementById("app").innerHTML = `
-//       <h2>Score: <span id="score">0</span></h2>
-//       <h2>Time Left: <span id="timer">${timeLeft}</span> seconds</h2>
-//       <img id="gameImage" src="${getRandomFrame()}" alt="Spongebob Frame" />
-//       <input type="text" id="answerInput" placeholder="Type your answer here" />
-//       <button id="submitButton">Submit</button>
-//   `;
-
-//   const timerInterval = setInterval(() => {
-//     timeLeft--;
-//     document.getElementById("timer").textContent = timeLeft;
-//     if (timeLeft === 0) {
-//       clearInterval(timerInterval);
-//       endGame(score);
-//     }
-//   }, 1000);
-// }
-
-// document.getElementById("submitButton").addEventListener("click", function () {
-//   const userAnswer = document.getElementById("answerInput").value.toLowerCase();
-//   if (userAnswer === ans) {
-//     score++;
-//     document.getElementById("score").textContent = score;
-//     currentImage++;
-//     if (currentImage < images.length) {
-//       // Load next image and reset timer
-//       document.getElementById("gameImage").src = images[currentImage];
-//       timeLeft = timeLimit;
-//       document.getElementById("answerInput").value = "";
-//     } else {
-//       clearInterval(timerInterval);
-//       endGame(score);
-//     }
-//   } else {
-//     clearInterval(timerInterval);
-//     endGame(score);
-//   }
-// });
-
-// function getRandomFrame() {
-//   let randomEpisode = Math.floor(Math.random() * episodeCount) + 1;
-//   let randomFrame = Math.floor(Math.random() * frameCount) + 1;
-//   ans = randomEpisode;
-//   let currentImgPath = `./images/E${currentEpisode}/F${currentFrame}.png`;
-
-//   return currentImgPath;
-// }
-
-// function endGame(finalScore) {
-//   document.getElementById("app").innerHTML = `
-//       <h1>Game Over</h1>
-//       <p>Your final score is: ${finalScore}</p>
-//       <button id="restartButton">Play Again</button>
-//   `;
-
-//   document
-//     .getElementById("restartButton")
-//     .addEventListener("click", function () {
-//       location.reload();
-//     });
-// }
-
 const episodeCount = 1;
 const frameCount = 22;
 let usedFrames = new Set();
@@ -234,6 +153,8 @@ function getRandomFrame() {
 function endGame(finalScore) {
   document.getElementById("app").innerHTML = `
       <h1>Game Over</h1>
+      <p>That frame was from episode ${ans}</p>
+      <br>
       <p>Your final score is: ${finalScore}</p>
       <button id="restartButton">Play Again</button>
   `;
@@ -244,3 +165,20 @@ function endGame(finalScore) {
       location.reload();
     });
 }
+
+// Music Selection Logic
+const musicSelect = document.getElementById("musicSelect");
+const audioPlayer = document.getElementById("backgroundMusic");
+const audioSource = document.getElementById("audioSource");
+
+// Event listener to change music based on user selection
+musicSelect.addEventListener("change", function () {
+  const selectedMusic = musicSelect.value; // Get the selected music file
+
+  if (selectedMusic === "none") {
+    audioPlayer.src = ""; // Stop current audio
+  } else {
+    audioPlayer.src = selectedMusic;
+    audioPlayer.play(); // Automatically play selected music
+  }
+});

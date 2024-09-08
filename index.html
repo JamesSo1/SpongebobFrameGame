@@ -7,6 +7,19 @@
     <link rel="stylesheet" href="index.css" />
   </head>
   <body>
+    <!-- Background Music -->
+    <label for="musicSelect">Choose your background music:</label>
+    <select id="musicSelect">
+      <option value="none" selected>No Music</option>
+      <option value="./backgroundMusic/HelloBlues.mp3">Hello Blues</option>
+      <option value="./backgroundMusic/AlohaOe.mp3">Aloha Oe</option>
+      <option value="./backgroundMusic/MauiBeach.mp3">Maui Beach</option>
+    </select>
+
+    <audio id="backgroundMusic" loop>
+      Your browser does not support the audio element.
+    </audio>
+
     <section class="sticky">
       <div class="bubbles">
         <div class="bubble"></div>
