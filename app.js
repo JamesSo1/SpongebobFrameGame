@@ -1,5 +1,5 @@
 const episodeCount = 1;
-const frameCount = 22;
+const frameCount = 21;
 let usedFrames = new Set();
 let ans;
 const episodes = [
@@ -155,7 +155,7 @@ function endGame(finalScore) {
       <h1>Game Over</h1>
       <p>That frame was from episode ${ans}</p>
       <br>
-      <p>Your final score is: ${finalScore}</p>
+      <p>Your final score is: <b>${finalScore}</b></p>
       <button id="restartButton">Play Again</button>
   `;
 
