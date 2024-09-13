@@ -15,6 +15,6 @@ def rename_files_in_folder(folder_path, new_name_prefix):
         print(f"Renamed: {filename} -> {new_filename}")
 
 # Example usage:
-folder_path = "/Users/jamesso/SpongebobGame/images/E1"
+folder_path = "/Users/jamesso/SpongebobGame/images/E2"
 new_name_prefix = "F"
 rename_files_in_folder(folder_path, new_name_prefix)

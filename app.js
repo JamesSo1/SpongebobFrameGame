@@ -1,5 +1,5 @@
-const episodeCount = 1;
-const frameCount = 21;
+const episodeCount = 2;
+const frameCount = 10;
 let usedFrames = new Set();
 let ans;
 const episodes = [
@@ -127,8 +127,6 @@ function startGame(timeLimit) {
     });
 } //end of startGame()
 
-//Issue: Need to avoid repeating the same frame!! Done
-// Issue: What happens if the person does all of the frames and we run out????
 function getRandomFrame() {
   console.log(usedFrames);
   let randomEpisode = Math.floor(Math.random() * episodeCount) + 1;
