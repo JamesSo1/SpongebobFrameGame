@@ -2,11 +2,13 @@
 body {
   background-image: url("./spongebob_background.png");
   background-size: cover;
+  background-repeat: no-repeat;
   font-family: "Comic Sans MS", cursive, sans-serif;
   color: #2c3e50;
   text-align: center;
   margin: 0;
   padding: 0;
+  height: 100vh;
 }
 
 #app {
@@ -61,17 +63,15 @@ button:hover {
   background-color: #d35400; /* Darker orange on hover */
 }
 
-/* Styling the game image */
+/* Styling the image of the frame that the user needs to guess the episode for*/
 #gameImage {
-  border: 5px solid #16a085; /* SpongeBob's pants green */
+  border: 5px solid #16a085;
   border-radius: 10px;
   max-width: 50%;
   height: auto;
 }
 
 /* Styling for the dropdown menu to choose an answer */
-
-/* Note to self: Make the select bar the right size and also fix background when the page is skinny! Make the image static and the window change but not affect the background img size*/
 .choices {
   height: 55px;
 }
