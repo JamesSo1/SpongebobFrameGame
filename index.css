@@ -47,7 +47,7 @@ select {
 }
 
 button {
-  background-color: #e67e22; /* SpongeBob's pants orange */
+  background-color: #e67e22;
   color: white;
   border: none;
   padding: 10px 30px;
@@ -73,10 +73,10 @@ button:hover {
 
 /* Note to self: Make the select bar the right size and also fix background when the page is skinny! Make the image static and the window change but not affect the background img size*/
 .choices {
-  height: 20px;
+  height: 55px;
 }
 .choices__list--dropdown {
-  max-height: 95px;
+  max-height: 100px;
   overflow-y: auto;
 }
 
