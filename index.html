@@ -8,14 +8,6 @@
   </head>
   <body>
     <!-- Background Music -->
-    <label for="musicSelect">Choose your background music:</label>
-    <select id="musicSelect">
-      <option value="none" selected>No Music</option>
-      <option value="./backgroundMusic/HelloBlues.mp3">Hello Blues</option>
-      <option value="./backgroundMusic/AlohaOe.mp3">Aloha Oe</option>
-      <option value="./backgroundMusic/MauiBeach.mp3">Maui Beach</option>
-    </select>
-
     <audio id="backgroundMusic" loop>
       Your browser does not support the audio element.
     </audio>
@@ -43,6 +35,15 @@
         <option value="medium">Medium (20 Seconds Per Frame)</option>
         <option value="hard">Hard (10 Seconds Per Frame)</option>
       </select>
+      <br />
+      <label for="musicSelect">Music:</label>
+      <select id="musicSelect">
+        <option value="none" selected>No Music</option>
+        <option value="./backgroundMusic/HelloBlues.mp3">Hello Blues</option>
+        <option value="./backgroundMusic/AlohaOe.mp3">Aloha Oe</option>
+        <option value="./backgroundMusic/MauiBeach.mp3">Maui Beach</option>
+      </select>
+      <br />
       <button id="startButton">Start!</button>
     </div>
 

@@ -70,11 +70,14 @@ function startGame(timeLimit) {
         <h2>Time Left: <span id="timer">${timeLeft}</span> seconds</h2>
         <img id="gameImage" src="${imagePath}" alt="Spongebob Frame" />
         <select id="choicesDropdown">
+          <option value="" disabled selected>Select an episode...</option>
         </select>
         <button id="submitButton">Submit</button>
     `;
 
   const choicesDropdown = document.getElementById("choicesDropdown");
+
+  // Populate episode dropdown menu
   episodes.forEach((episode) => {
     const option = document.createElement("option");
     option.value = episode.number;
@@ -88,6 +91,7 @@ function startGame(timeLimit) {
     removeItemButton: true,
     placeholder: true,
     placeholderValue: "Select an episode...",
+    position: "bottom",
   });
 
   const timerInterval = setInterval(() => {
@@ -105,12 +109,11 @@ function startGame(timeLimit) {
       const userAnswer = parseInt(
         document.getElementById("choicesDropdown").value
       );
-      console.log("123");
       if (userAnswer === ans) {
         score++;
         document.getElementById("score").textContent = score;
-        let newImagePath = getRandomFrame();
         if (usedFrames.size < episodeCount * frameCount) {
+          let newImagePath = getRandomFrame();
           // Load next image and reset timer
           document.getElementById("gameImage").src = newImagePath;
           timeLeft = timeLimit;
@@ -121,11 +124,6 @@ function startGame(timeLimit) {
           endGame(score);
         }
       }
-      // Let's make it so they have infinite guesses within the time limit
-      // } else {
-      //   clearInterval(timerInterval);
-      //   endGame(score);
-      // }
     });
 } //end of startGame()
 
@@ -151,13 +149,21 @@ function getRandomFrame() {
 }
 
 function endGame(finalScore) {
-  document.getElementById("app").innerHTML = `
+  console.log("the last score: ", score);
+  if (finalScore == episodeCount * frameCount) {
+    document.getElementById("app").innerHTML = `
+      <h1>You are #1!</h1>
+      <p>You guessed all of the frames correctly!</p>
+      <button id="restartButton">Play Again</button>
+  `;
+  } else {
+    document.getElementById("app").innerHTML = `
       <h1>Game Over</h1>
       <p>That frame was from episode ${ans}</p>
-      <br>
       <p>Your final score is: <b>${finalScore}</b></p>
       <button id="restartButton">Play Again</button>
   `;
+  }
 
   document
     .getElementById("restartButton")
